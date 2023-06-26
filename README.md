@@ -1,4 +1,4 @@
-##Sistema de conta bancária com python:
+Sistema de conta bancária com python:
 
 A ideia é bem simples. Quando você executa o programa, ele mostra algumas opções para você escolher: depositar, sacar, ver o extrato ou sair.
 
