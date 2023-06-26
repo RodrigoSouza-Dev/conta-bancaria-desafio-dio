@@ -1,6 +1,7 @@
 saldo = 0
 saques_realizados = 0
 saques_total = 0
+SAQUES_TOTAL = 1500
 historico = []
 
 def deposito(valor):
@@ -15,7 +16,7 @@ def deposito(valor):
 def saque(valor):
     global saldo, saques_realizados, saques_total
     if valor > 0:
-        if saques_realizados < 3 and saques_total + valor <= 500:
+        if saques_realizados < 3 and saques_total + valor <= SAQUES_TOTAL and valor <= 500:
             if saldo >= valor:
                 saldo -= valor
                 saques_realizados += 1
@@ -25,7 +26,10 @@ def saque(valor):
             else:
                 print("Saldo insuficiente para realizar o saque.")
         else:
-            print("\n------------------Limite diário de saques atingido.------------------\n")
+            if valor > 500:
+                print("\n------------------Valor máximo por saque é de R$500.00!------------------\n")
+            else:
+                print("\n------------------Limite diário de saques atingido.------------------\n")
     else:
         print("Valor inválido. O valor do saque deve ser positivo.")
 
@@ -55,4 +59,4 @@ while True:
     elif opcao == '0':
         break
     else:
-        print("Opção inválida! Escolha: 1 - Depósito, 2 - Saque, 3 - Extrato, 0 - Sair.")
+        print("\n>>>>>>>>>>>>>>>>>>>>Opção inválida! Escolha: 1 - Depósito, 2 - Saque, 3 - Extrato, 0 - Sair.")
